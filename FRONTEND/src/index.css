@@ -1,0 +1,51 @@
+@import "tailwindcss";
+/* hero section */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.25) 2px, transparent 2px);
+  background-size: 30px 30px;
+}
+
+.hero-text {
+  background-size: 200% 200%;
+}
+
+.animate-gradient {
+  animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+/* login */
+
+body {
+  background: #1f2937 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.3)"/><circle cx="30" cy="30" r="1" fill="rgba(255,255,255,0.3)"/><circle cx="30" cy="10" r="1" fill="rgba(255,255,255,0.3)"/><circle cx="10" cy="30" r="1" fill="rgba(255,255,255,0.3)"/></svg>') repeat;
+}
