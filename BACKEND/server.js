@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json({ limit: '10mb' }));
 // Configure CORS to allow requests from frontend
 app.use(cors({
-  origin: process.env.FRONTEND_URL, // http://localhost:5173
+  origin: "*",
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
