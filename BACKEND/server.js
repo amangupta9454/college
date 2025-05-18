@@ -40,7 +40,7 @@ cloudinary.config({
 });
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
@@ -528,6 +528,10 @@ app.use((err, req, res, next) => {
     return res.status(400).json({ message: 'Only image files are allowed.' });
   }
   res.status(500).json({ message: 'Server error', error: err.message });
+});
+
+app.get("/", (req, res) => {
+  res.send({"msg": "BACKEND HOSTED SUCCESSFULLY"});
 });
 
 app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
