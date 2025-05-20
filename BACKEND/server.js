@@ -350,6 +350,10 @@ app.post('/api/listings', upload.single('photo'), async (req, res) => {
       about,
       github,
       linkedin,
+      participatedInHackathon,
+      hackathonName,
+      hackathonDate,
+      teamName,
     } = req.body;
 
     let photoUrl = '';
@@ -382,6 +386,12 @@ app.post('/api/listings', upload.single('photo'), async (req, res) => {
       github,
       linkedin,
       userId: user._id,
+      participatedInHackathon,
+      hackathonDetails: participatedInHackathon === 'Yes' ? {
+        hackathonName,
+        hackathonDate,
+        teamName,
+      } : {},
     });
 
     await listing.save();
@@ -444,6 +454,10 @@ app.put('/api/listings/:id', upload.single('photo'), async (req, res) => {
       about,
       github,
       linkedin,
+      participatedInHackathon,
+      hackathonName,
+      hackathonDate,
+      teamName,
     } = req.body;
 
     let photoUrl = listing.photo;
@@ -474,6 +488,12 @@ app.put('/api/listings/:id', upload.single('photo'), async (req, res) => {
     listing.photo = photoUrl;
     listing.github = github || listing.github;
     listing.linkedin = linkedin || listing.linkedin;
+    listing.participatedInHackathon = participatedInHackathon || listing.participatedInHackathon;
+    listing.hackathonDetails = participatedInHackathon === 'Yes' ? {
+      hackathonName: hackathonName || listing.hackathonDetails?.hackathonName,
+      hackathonDate: hackathonDate || listing.hackathonDetails?.hackathonDate,
+      teamName: teamName || listing.hackathonDetails?.teamName,
+    } : {};
 
     await listing.save();
     res.status(200).json({ message: 'Listing updated successfully', listing });

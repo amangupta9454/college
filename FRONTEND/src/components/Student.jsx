@@ -182,6 +182,14 @@ const Student = () => {
                   </a>
                 </p>
               )}
+              <p className="text-gray-300"><strong>Hackathon Participation:</strong> {listing.participatedInHackathon}</p>
+              {listing.participatedInHackathon === 'Yes' && (
+                <>
+                  <p className="text-gray-300"><strong>Hackathon Name:</strong> {listing.hackathonDetails?.hackathonName}</p>
+                  <p className="text-gray-300"><strong>Hackathon Date:</strong> {listing.hackathonDetails?.hackathonDate}</p>
+                  <p className="text-gray-300"><strong>Team Name:</strong> {listing.hackathonDetails?.teamName}</p>
+                </>
+              )}
               <a
                 href={`https://wa.me/${listing.whatsapp}`}
                 target="_blank"

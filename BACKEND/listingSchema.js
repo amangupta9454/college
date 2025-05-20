@@ -24,6 +24,12 @@ const listingSchema = new mongoose.Schema({
   linkedin: { type: String },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   createdAt: { type: Date, default: Date.now },
+  participatedInHackathon: { type: String, enum: ['Yes', 'No'], required: true },
+  hackathonDetails: {
+    hackathonName: { type: String },
+    hackathonDate: { type: String },
+    teamName: { type: String },
+  },
 });
 
 module.exports = mongoose.model('Listing', listingSchema);

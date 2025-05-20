@@ -18,6 +18,10 @@ const Listing = () => {
     github: '',
     linkedin: '',
     photo: null,
+    participatedInHackathon: 'No',
+    hackathonName: '',
+    hackathonDate: '',
+    teamName: '',
   });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
@@ -84,6 +88,15 @@ const Listing = () => {
       case 'linkedin':
         if (value && !/^[a-zA-Z0-9-]{3,100}$/.test(value)) error = 'Invalid LinkedIn username (3-100 characters, letters, numbers, or hyphens)';
         break;
+      case 'hackathonName':
+        if (formData.participatedInHackathon === 'Yes' && !value.trim()) error = 'Hackathon name is required';
+        break;
+      case 'hackathonDate':
+        if (formData.participatedInHackathon === 'Yes' && !value) error = 'Hackathon date is required';
+        break;
+      case 'teamName':
+        if (formData.participatedInHackathon === 'Yes' && !value.trim()) error = 'Team name is required';
+        break;
       default:
         break;
     }
@@ -124,9 +137,9 @@ const Listing = () => {
       }
     });
 
-    console.log('FormData entries:');
+    // console.log('FormData entries:');
     for (let [key, value] of data.entries()) {
-      console.log(`${key}:`, value);
+      // console.log(`${key}:`, value);
     }
 
     try {
@@ -209,8 +222,7 @@ const Listing = () => {
               name="course"
               value={formData.course}
               onChange={handleChange}
-              className="mt-1 w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600  focus:ring-indigo- PragmaticDragons
-              focus:ring-2 focus:ring-indigo-500 shadow-inner"
+              className="mt-1 w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-indigo-500 shadow-inner"
             >
               <option value="">Select Course</option>
               {['BTech', 'BBA', 'BCA', 'Polytechnic', 'MEd', 'BEd', 'MCA'].map((course) => (
@@ -315,6 +327,55 @@ const Listing = () => {
             />
             {errors.linkedin && <p className="text-red-400 text-sm mt-1">{errors.linkedin}</p>}
           </div>
+          <div>
+            <label className="block text-sm font-medium text-gray-300">Have you participated in a hackathon?</label>
+            <select
+              name="participatedInHackathon"
+              value={formData.participatedInHackathon}
+              onChange={handleChange}
+              className="mt-1 w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-indigo-500 shadow-inner"
+            >
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+            </select>
+          </div>
+          {formData.participatedInHackathon === 'Yes' && (
+            <>
+              <div>
+                <label className="block text-sm font-medium text-gray-300">Hackathon Name</label>
+                <input
+                  type="text"
+                  name="hackathonName"
+                  value={formData.hackathonName}
+                  onChange={handleChange}
+                  className="mt-1 w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-indigo-500 shadow-inner"
+                />
+                {errors.hackathonName && <p className="text-red-400 text-sm mt-1">{errors.hackathonName}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300">Hackathon Date</label>
+                <input
+                  type="date"
+                  name="hackathonDate"
+                  value={formData.hackathonDate}
+                  onChange={handleChange}
+                  className="mt-1 w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-indigo-500 shadow-inner"
+                />
+                {errors.hackathonDate && <p className="text-red-400 text-sm mt-1">{errors.hackathonDate}</p>}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-300">Team Name</label>
+                <input
+                  type="text"
+                  name="teamName"
+                  value={formData.teamName}
+                  onChange={handleChange}
+                  className="mt-1 w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-2 focus:ring-indigo-500 shadow-inner"
+                />
+                {errors.teamName && <p className="text-red-400 text-sm mt-1">{errors.teamName}</p>}
+              </div>
+            </>
+          )}
           <button
             type="submit"
             disabled={submitting}
