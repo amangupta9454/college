@@ -89,8 +89,10 @@ const Footer = () => {
       <div className="my-14 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-20 rounded-full" />
 
       {/* Copyright */}
-      <div className="text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} <span className="text-white font-semibold">TEAM--UP</span>. All rights reserved.
+      <div className="text-center text-lg text-white">
+        © {new Date().getFullYear()} <span className="text-white font-semibold hover:text-pink-600">TEAM-UP</span>. All rights reserved.
+        <br />
+        <span className="text-pink-800 font-bold hover:text-green-500">This Website belongs to HIET Ghaziabad</span>
       </div>
 
       {/* Developer Credits */}
