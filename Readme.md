@@ -338,29 +338,14 @@ http://localhost:5173
 
 
 
-📬 Contact Me
-
-
-
-
-
-Name: Aman Gupta
-
-
-
-Email: ag0567688@gmail.com
-
-
-
-LinkedIn: linkedin.com/in/amangupta9454
-
-
-
-Portfolio: guptaaman.netlify.app
-
-
-
-WhatsApp: +91-9876543210
+<h2 id="contact">📬 Contact Me</h2>
+             <ul>
+              <li><strong>Name:</strong> Aman Gupta</li>
+               <li><strong>Email:</strong>  <a href="ag0567688@gmail.com">Send me an email</a> </li>
+                <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/amangupta9454">LINKEDIN</a></li>
+                 <li><strong>GitHub:</strong> <a href="https://github.com/amangupta9454">GITHUB</a></li>
+                 <li><strong>Portfolio:</strong> <a href="https://guptaaman.netlify.app/">PORTFOLIO</a></li>
+                  </ul> 
 
 
 
