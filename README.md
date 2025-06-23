@@ -264,7 +264,7 @@ npm run dev
 🌐 Open Your Browser
 
 http://localhost:5173
-
+```
 
 
 <hr> 
@@ -305,4 +305,3 @@ http://localhost:5173
                    <p><strong>Aman Gupta</strong><br>B.Tech 2nd year Student | HIET Ghaziabad<br>Passionate about tech and sustainable Skilling 🌱</p>
                     <p align="center">⭐ If you found this project helpful, give it a star!</p>
 
-```
